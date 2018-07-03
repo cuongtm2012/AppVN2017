@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.appvn.FXMLController">
+   <children>
+      <Button fx:id="btnSubmit" layoutX="459.0" layoutY="537.0" mnemonicParsing="false" onAction="#handleSubmitButton" text="In báo cáo" />
+      <Pane prefHeight="123.0" prefWidth="1000.0">
+         <children>
+            <Label layoutX="417.0" layoutY="39.0" text="PHẦN MỀM " textFill="#ee2d2d">
+               <font>
+                  <Font name="Times New Roman Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="670.0" layoutY="84.0" prefHeight="25.0" prefWidth="316.0" text="Người thực hiện : Trần Ngọc Linh" textFill="#0032ff">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="69.0" fitWidth="380.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Data/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TitledPane animated="false" layoutX="13.0" layoutY="126.0" prefHeight="114.0" prefWidth="974.0" text="Bể Số 1">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="972.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Chiều cao" />
+                  <TextField fx:id="txtBeso11" layoutX="91.0" layoutY="9.0" prefHeight="27.0" prefWidth="50.0" />
+                  <TextField fx:id="txtBeso12" layoutX="147.0" layoutY="9.0" prefHeight="27.0" prefWidth="50.0" />
+                  <Label layoutX="263.0" layoutY="14.0" text="Tiếp nhận" />
+                  <TextField fx:id="txtTiepNhanBs1" layoutX="339.0" layoutY="9.0" prefHeight="27.0" prefWidth="70.0" />
+                  <Label layoutX="420.0" layoutY="14.0" text="Cấp phát" />
+                  <TextField fx:id="txtCapPhatBs1" layoutX="486.0" layoutY="9.0" prefHeight="27.0" prefWidth="70.0" />
+                  <Label layoutX="576.0" layoutY="14.0" text="Bảo quản" />
+                  <TextField fx:id="txtBaoquanBs1" layoutX="651.0" layoutY="9.0" prefHeight="27.0" prefWidth="70.0" />
+                  <Label layoutX="751.0" layoutY="14.0" text="Vận chuyển" />
+                  <TextField fx:id="txtVanchuyenBs1" layoutX="839.0" layoutY="9.0" prefHeight="27.0" prefWidth="70.0" />
+                  <Label layoutX="263.0" layoutY="48.0" text="Nhiệt độ" />
+                  <TextField fx:id="txtnhietdoBe1" layoutX="339.0" layoutY="43.0" prefHeight="27.0" prefWidth="70.0" />
+                  <TextField fx:id="txttontheoSSBe1" layoutX="651.0" layoutY="43.0" prefHeight="27.0" prefWidth="70.0" />
+                  <Label layoutX="523.0" layoutY="48.0" text="Tồn theo sổ sách" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="13.0" layoutY="259.0" prefHeight="114.0" prefWidth="974.0" text="Bể Số 2">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="972.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Chiều cao" />
+                  <TextField fx:id="txtBeso21" layoutX="91.0" layoutY="9.0" prefHeight="27.0" prefWidth="50.0" />
+                  <TextField fx:id="txtBeso22" layoutX="147.0" layoutY="9.0" prefHeight="27.0" prefWidth="50.0" />
+                  <Label layoutX="263.0" layoutY="14.0" text="Tiếp nhận" />
+                  <TextField fx:id="txtTiepNhanBs2" layoutX="339.0" layoutY="9.0" prefHeight="27.0" prefWidth="70.0" />
+                  <Label layoutX="420.0" layoutY="14.0" text="Cấp phát" />
+                  <TextField fx:id="txtCapPhatBs2" layoutX="486.0" layoutY="9.0" prefHeight="27.0" prefWidth="70.0" />
+                  <Label layoutX="576.0" layoutY="14.0" text="Bảo quản" />
+                  <TextField fx:id="txtBaoquanBs2" layoutX="651.0" layoutY="9.0" prefHeight="27.0" prefWidth="70.0" />
+                  <Label layoutX="751.0" layoutY="14.0" text="Vận chuyển" />
+                  <TextField fx:id="txtVanchuyenBs2" layoutX="839.0" layoutY="9.0" prefHeight="27.0" prefWidth="70.0" />
+                  <Label layoutX="263.0" layoutY="48.0" text="Nhiệt độ" />
+                  <TextField fx:id="txtnhietdoBe2" layoutX="339.0" layoutY="43.0" prefHeight="27.0" prefWidth="70.0" />
+                  <TextField fx:id="txttontheoSSBe2" layoutX="651.0" layoutY="43.0" prefHeight="27.0" prefWidth="70.0" />
+                  <Label layoutX="523.0" layoutY="48.0" text="Tồn theo sổ sách" />
+                  <TextField fx:id="txtBeso23" layoutX="204.0" layoutY="9.0" prefHeight="27.0" prefWidth="50.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="13.0" layoutY="395.0" prefHeight="114.0" prefWidth="974.0" text="Bể Số 3">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="45.0" prefWidth="972.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Chiều cao" />
+                  <TextField fx:id="txtBeso31" layoutX="91.0" layoutY="9.0" prefHeight="27.0" prefWidth="50.0" />
+                  <TextField fx:id="txtBeso32" layoutX="147.0" layoutY="9.0" prefHeight="27.0" prefWidth="50.0" />
+                  <Label layoutX="263.0" layoutY="14.0" text="Tiếp nhận" />
+                  <TextField fx:id="txtTiepNhanBs3" layoutX="339.0" layoutY="9.0" prefHeight="27.0" prefWidth="70.0" />
+                  <Label layoutX="420.0" layoutY="14.0" text="Cấp phát" />
+                  <TextField fx:id="txtCapPhatBs3" layoutX="486.0" layoutY="9.0" prefHeight="27.0" prefWidth="70.0" />
+                  <Label layoutX="576.0" layoutY="14.0" text="Bảo quản" />
+                  <TextField fx:id="txtBaoquanBs3" layoutX="651.0" layoutY="9.0" prefHeight="27.0" prefWidth="70.0" />
+                  <Label layoutX="751.0" layoutY="14.0" text="Vận chuyển" />
+                  <TextField fx:id="txtVanchuyenBs3" layoutX="839.0" layoutY="9.0" prefHeight="27.0" prefWidth="70.0" />
+                  <Label layoutX="263.0" layoutY="48.0" text="Nhiệt độ" />
+                  <TextField fx:id="txtnhietdoBe3" layoutX="339.0" layoutY="43.0" prefHeight="27.0" prefWidth="70.0" />
+                  <TextField fx:id="txttontheoSSBe3" layoutX="651.0" layoutY="43.0" prefHeight="27.0" prefWidth="70.0" />
+                  <Label layoutX="523.0" layoutY="48.0" text="Tồn theo sổ sách" />
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,5 @@
+1|Trung tá|Nguyễn Thái BìnhTung|Chủ nhiệm Hậu cần
+2|Thiếu tá|Trần Ngọc Linh|Trợ lý xăng dầu
+3|Thượng uý|CN Lê Bá Thương|Nhân viên thống kê xăng dầu
+4|Thượng uý|QNCN Nguyễn Thanh Huyền|Nhân viên tài chính
+5|Trung sỹ|Bùi Anh Tung|Thủ kho xăng dầu

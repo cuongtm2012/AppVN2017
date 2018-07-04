@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -179,8 +178,10 @@ public class FXMLController implements Initializable {
 		m.put("VCF21", prd.getVCF21());
 		m.put("VCF22", prd.getVCF22());
 		m.put("VCF23", prd.getVCF23());
+		m.put("Vthucte21", prd.getVthucte21());
 		m.put("Vthucte22", prd.getVthucte22());
 		m.put("Vthucte23", prd.getVthucte23());
+		m.put("V15_21", prd.getV15_21());
 		m.put("V15_22", prd.getV15_22());
 		m.put("V15_23", prd.getV15_23());
 		m.put("nhietdo2", prd.getNhietdo2());
@@ -191,15 +192,17 @@ public class FXMLController implements Initializable {
 		m.put("beso31", prd.getBeso31());
 		m.put("baoquan3", prd.getBaoquan3());
 		m.put("vanchuyen3", prd.getVanchuyen3());
-		m.put("Vthucte32", prd.getVthucte32());
 		m.put("tontheoSS3", prd.getTontheoSS3());
 		m.put("nhietdo3", prd.getNhietdo3());
 		m.put("V15_32", prd.getV15_32());
 		m.put("V15_31", prd.getV15_31());
 		m.put("Vthucte31", prd.getVthucte31());
+		m.put("Vthucte32", prd.getVthucte32());
 		m.put("VCF31", prd.getVCF31());
 		m.put("VCF32", prd.getVCF32());
-		
+		m.put("thieu1", prd.getThieu1());
+		m.put("thieu2", prd.getThieu2());
+		m.put("thieu3", prd.getThieu3());
 		// Add thanhphan into dataSource
 		App app = new App();
 		String thanhphanPath = app.getFileWithUtil("Data/thanhPhan.txt");
@@ -446,7 +449,7 @@ public class FXMLController implements Initializable {
 			product.setVanchuyen2(vanchuyen2);
 			product.setNhietdo2(nhietdoBe2);
 			product.setTontheoSS2(tontheoSSBe2);
-
+			
 			product.setBeso31(beso31);
 			product.setBeso32(beso32);
 			product.setVCF31(String.valueOf(VCF31));

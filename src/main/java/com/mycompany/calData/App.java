@@ -9,20 +9,23 @@ package com.mycompany.calData;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.List;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.lang.StringUtils;
 
 public class App {
-    public static List<barem> readBaremFile(String path) {
+    public List<barem> readBaremFile(String path) {
         List<barem> baremList = new ArrayList<>();
         barem baremObj = new barem();
         try {
             BufferedReader br = null;
-            FileReader fr = null;
+            InputStream istream = null;
             try {
-                fr = new FileReader(path);
-                br = new BufferedReader(fr);
+            	istream = this.getClass().getClassLoader().getResourceAsStream(path);
+                br = new BufferedReader(new InputStreamReader(istream));
 
                 String sCurrentLine;
 
@@ -41,8 +44,6 @@ public class App {
                 try {
                     if (br != null)
                         br.close();
-                    if (fr != null)
-                        fr.close();
                 } catch (Exception ex) {
                     System.out.println(ex);
                 }
@@ -53,15 +54,15 @@ public class App {
         return baremList;
     }
 
-    public static List<thanhphan> readThanhPhan(String path) {
+    public List<thanhphan> readThanhPhan(String path) {
         List<thanhphan> thanhphanList = new ArrayList<>();
         thanhphan thanhphan = new thanhphan();
         try {
             BufferedReader brTp = null;
-            FileReader frTp = null;
+            InputStream istream = null;
             try {
-                frTp = new FileReader(path);
-                brTp = new BufferedReader(frTp);
+            	istream = this.getClass().getClassLoader().getResourceAsStream(path);
+                brTp = new BufferedReader(new InputStreamReader(istream));
 
                 String sCurrentLine;
 
@@ -80,8 +81,6 @@ public class App {
                 try {
                     if (brTp != null)
                         brTp.close();
-                    if (frTp != null)
-                        frTp.close();
                 } catch (Exception ex) {
                     System.out.println(ex);
                 }
@@ -90,18 +89,6 @@ public class App {
             System.out.println(e);
         }
         return thanhphanList;
-    }
-
-    public String getFileWithUtil(String fileName) {
-        String path = "";
-        ClassLoader classLoader = getClass().getClassLoader();
-        try {
-            File file = new File(classLoader.getResource(fileName).getFile());
-            path = file.getPath();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return path;
     }
 
     private static barem parseBarem(String inpString) {

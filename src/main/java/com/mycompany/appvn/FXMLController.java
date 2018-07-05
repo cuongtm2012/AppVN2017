@@ -1,6 +1,9 @@
 package com.mycompany.appvn;
 
 import java.awt.Dimension;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -205,8 +208,7 @@ public class FXMLController implements Initializable {
 		m.put("thieu3", prd.getThieu3());
 		// Add thanhphan into dataSource
 		App app = new App();
-		String thanhphanPath = app.getFileWithUtil("Data/thanhPhan.txt");
-		List<thanhphan> thanhphan = App.readThanhPhan(thanhphanPath);
+		List<thanhphan> thanhphan = app.readThanhPhan("Data/thanhPhan.txt");
 		for(int i = 0; i< thanhphan.size(); i++){
 			m.put("stt"+i, thanhphan.get(i).getStt());
 			m.put("tittle"+i, thanhphan.get(i).getTittle());
@@ -217,6 +219,8 @@ public class FXMLController implements Initializable {
 		dataSource.add(m);
 		JRDataSource frDataSource = new JRBeanCollectionDataSource(dataSource);
 		String sourceName = "src/main/resources/Data/newApp_3.jrxml";
+		//InputStream istream = this.getClass().getClassLoader().getResourceAsStream("Data/newApp_3.jrxml");
+
 
 		JasperReport report;
 		try {
@@ -231,8 +235,9 @@ public class FXMLController implements Initializable {
 			jf.setLocationRelativeTo(null);
 			jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-		} catch (JRException ex) {
+		} catch (JRException ex) { 
 			System.err.println(ex);
+			
 		}
 	}
 
@@ -328,13 +333,9 @@ public class FXMLController implements Initializable {
 		DecimalFormat formatDouble = new DecimalFormat("#0.00");
 
 		try {
-			String beso1Path = app.getFileWithUtil("Data/Data_Be1.txt");
-			String beso2Path = app.getFileWithUtil("Data/Data_Be2.txt");
-			String beso3Path = app.getFileWithUtil("Data/Data_Be3.txt");
-			
-			List<barem> beso1 = App.readBaremFile(beso1Path);
-			List<barem> beso2 = App.readBaremFile(beso2Path);
-			List<barem> beso3 = App.readBaremFile(beso3Path);
+			List<barem> beso1 = app.readBaremFile("Data/Data_Be1.txt");
+			List<barem> beso2 = app.readBaremFile("Data/Data_Be2.txt");
+			List<barem> beso3 = app.readBaremFile("Data/Data_Be3.txt");
 			
 
 			if (!StringUtils.isEmpty(nhietdoBe1)) {

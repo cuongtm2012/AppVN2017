@@ -1,13 +1,7 @@
 package com.mycompany.appvn;
 
 import java.awt.Dimension;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -20,7 +14,6 @@ import java.util.ResourceBundle;
 import javax.swing.JFrame;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.tools.ant.util.ResourceUtils;
 
 import com.mycompany.calData.App;
 import com.mycompany.calData.barem;

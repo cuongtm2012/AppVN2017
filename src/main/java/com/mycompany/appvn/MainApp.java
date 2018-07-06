@@ -17,7 +17,7 @@ public class MainApp extends Application {
         scene.getStylesheets().add("/styles/Styles.css");
         
         stage.setResizable(false);
-        stage.setTitle("Phan mem bao cao Xang Dau - Tran Ngoc Linh");
+        stage.setTitle("Phần mềm Quy đổi thể tích đo dung tích bể trụ tại Lữ Đoàn 205 - BCTTLL - Trần Ngọc Linh");
         stage.setScene(scene);
         stage.show();
     }

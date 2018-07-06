@@ -3,7 +3,11 @@ package com.mycompany.appvn;
 import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -16,6 +20,7 @@ import java.util.ResourceBundle;
 import javax.swing.JFrame;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.tools.ant.util.ResourceUtils;
 
 import com.mycompany.calData.App;
 import com.mycompany.calData.barem;
@@ -218,18 +223,18 @@ public class FXMLController implements Initializable {
 		
 		dataSource.add(m);
 		JRDataSource frDataSource = new JRBeanCollectionDataSource(dataSource);
-		String sourceName = "src/main/resources/Data/newApp_3.jrxml";
-		//InputStream istream = this.getClass().getClassLoader().getResourceAsStream("Data/newApp_3.jrxml");
-
+		InputStream jasperJRXML = this.getClass().getResourceAsStream("/Data/newApp_3.jrxml");
 
 		JasperReport report;
 		try {
-			report = JasperCompileManager.compileReport(sourceName);
+			report = JasperCompileManager.compileReport(jasperJRXML);
 			JasperPrint jasperPrint = JasperFillManager.fillReport(report, null, frDataSource);
 			JRViewer jv = new JRViewer(jasperPrint);
 			JFrame jf = new JFrame();
 			jf.getContentPane().add(jv);
 			jf.validate();
+//			jf.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+//			jf.setUndecorated(true);
 			jf.setVisible(true);
 			jf.setSize(new Dimension(1000, 800));
 			jf.setLocationRelativeTo(null);

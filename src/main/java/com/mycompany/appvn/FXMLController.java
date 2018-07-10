@@ -158,7 +158,7 @@ public class FXMLController implements Initializable {
 		m.put("beso11", prd.getBeso11());
 		m.put("beso12", prd.getBeso12());
 		m.put("tiepnhan1", prd.getTiepnhan1());
-		m.put("capnhat1", prd.getCapphat1());
+		m.put("capphat1", prd.getCapphat1());
 		m.put("baoquan1", prd.getBaoquan1());
 		m.put("vanchuyen1", prd.getVanchuyen1());
 		m.put("VCF11", prd.getVCF11());
@@ -172,7 +172,7 @@ public class FXMLController implements Initializable {
 		m.put("beso21", prd.getBeso21());
 		m.put("beso22", prd.getBeso22());
 		m.put("beso23", prd.getBeso23());
-		m.put("capnhat2", prd.getCapphat2());
+		m.put("capphat2", prd.getCapphat2());
 		m.put("tiepnhan2", prd.getTiepnhan2());
 		m.put("baoquan2", prd.getBaoquan2());
 		m.put("vanchuyen2", prd.getVanchuyen2());
@@ -187,7 +187,7 @@ public class FXMLController implements Initializable {
 		m.put("V15_23", prd.getV15_23());
 		m.put("nhietdo2", prd.getNhietdo2());
 		m.put("tontheoSS2", prd.getTontheoSS2());
-		m.put("capnhat3", prd.getCapphat3());
+		m.put("capphat3", prd.getCapphat3());
 		m.put("tiepnhan3", prd.getTiepnhan3());
 		m.put("beso32", prd.getBeso32());
 		m.put("beso31", prd.getBeso31());
@@ -212,6 +212,24 @@ public class FXMLController implements Initializable {
 			m.put("tittle"+i, thanhphan.get(i).getTittle());
 			m.put("tenNV"+i, thanhphan.get(i).getTenNV());
 			m.put("chucvu"+i, thanhphan.get(i).getChucvu());
+		}
+		
+		//Filling page 3
+		if(!StringUtils.isEmpty(tiepnhan1)){
+			Double tiepnhan1DB = (Double.parseDouble(tiepnhan1) * 0.35)/100;
+			m.put("tiepnhan1DB", String.valueOf(Math.round(tiepnhan1DB)));
+		}
+		if(!StringUtils.isEmpty(capphat1)){
+			Double capphat1DB = (Double.parseDouble(capphat1) * 0.6)/100;
+			m.put("capphat1DB", String.valueOf(Math.round(capphat1DB)));
+		}
+		if(!StringUtils.isEmpty(baoquan1)){
+			Double baoquan1DB = (Double.parseDouble(baoquan1) * 0.15)/100;
+			m.put("baoquan1DB",  String.valueOf(Math.round(baoquan1DB)));
+		}
+		if(!StringUtils.isEmpty(vanchuyen1)){
+			Double vanchuyen1DB = (Double.parseDouble(vanchuyen1) * 0.16)/100;
+			m.put("vanchuyen1DB",  String.valueOf(Math.round(vanchuyen1DB)));
 		}
 		
 		dataSource.add(m);
@@ -354,9 +372,10 @@ public class FXMLController implements Initializable {
 
 			if (!StringUtils.isEmpty(beso11) && !StringUtils.isEmpty(beso12)) {
 				Vthucte11 = app.findInBarem(beso11, beso1);
-				Vthucte12 = app.findInBarem(beso12, beso1);
+//				Vthucte12 = app.findInBarem(beso12, beso1);
+				Vthucte12 = Double.parseDouble(beso12);
 				V15_11 = Vthucte11 * VCF11;
-				V15_12 = Vthucte12 * VCF12;
+				V15_12 = Math.round(Vthucte12 * VCF12);
 				
 				String dx1= formatDouble.format(V15_11).replace(",", ".");
 				String dx2= formatDouble.format(V15_12).replace(",", ".");
@@ -365,10 +384,11 @@ public class FXMLController implements Initializable {
 						
 			}
 
-			if (!StringUtils.isEmpty(beso21) && !StringUtils.isEmpty(beso22)) {
+			if (!StringUtils.isEmpty(beso21) && !StringUtils.isEmpty(beso22)&& !StringUtils.isEmpty(beso23)) {
 				Vthucte21 = app.findInBarem(beso21, beso2);
 				Vthucte22 = app.findInBarem(beso22, beso2);
-				Vthucte23 = app.findInBarem(beso23, beso3);
+//				Vthucte23 = app.findInBarem(beso23, beso3);
+				Vthucte23 = Math.round(Double.parseDouble(beso23));
 
 				V15_21 = Vthucte21 * VCF21;
 				V15_22 = Vthucte22 * VCF22;
@@ -384,10 +404,11 @@ public class FXMLController implements Initializable {
 
 			if (!StringUtils.isEmpty(beso31) && !StringUtils.isEmpty(beso32)) {
 				Vthucte31 = app.findInBarem(beso31, beso3);
-				Vthucte32 = app.findInBarem(beso32, beso3);
+//				Vthucte32 = app.findInBarem(beso32, beso3);
+				Vthucte32 = Double.parseDouble(beso32);
 
 				V15_31 = Vthucte31 * VCF31;
-				V15_32 = Vthucte32 * VCF32;
+				V15_32 = Math.round(Vthucte32 * VCF32);
 				
 				String dx1= formatDouble.format(V15_31).replace(",", ".");
 				String dx2= formatDouble.format(V15_32).replace(",", ".");

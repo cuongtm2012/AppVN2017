@@ -207,31 +207,85 @@ public class FXMLController implements Initializable {
 		// Add thanhphan into dataSource
 		App app = new App();
 		List<thanhphan> thanhphan = app.readThanhPhan("Data/thanhPhan.txt");
-		for(int i = 0; i< thanhphan.size(); i++){
-			m.put("stt"+i, thanhphan.get(i).getStt());
-			m.put("tittle"+i, thanhphan.get(i).getTittle());
-			m.put("tenNV"+i, thanhphan.get(i).getTenNV());
-			m.put("chucvu"+i, thanhphan.get(i).getChucvu());
+		for (int i = 0; i < thanhphan.size(); i++) {
+			m.put("stt" + i, thanhphan.get(i).getStt());
+			m.put("tittle" + i, thanhphan.get(i).getTittle());
+			m.put("tenNV" + i, thanhphan.get(i).getTenNV());
+			m.put("chucvu" + i, thanhphan.get(i).getChucvu());
 		}
-		
-		//Filling page 3
-		if(!StringUtils.isEmpty(tiepnhan1)){
-			Double tiepnhan1DB = (Double.parseDouble(tiepnhan1) * 0.35)/100;
+
+		// Filling page 3
+		Double tiepnhan1DB = 0.0;
+		Double capphat1DB = 0.0;
+		Double baoquan1DB = 0.0;
+		Double vanchuyen1DB = 0.0;
+		if (!StringUtils.isEmpty(tiepnhan1)) {
+			tiepnhan1DB = (Double.parseDouble(tiepnhan1) * 0.35) / 100;
 			m.put("tiepnhan1DB", String.valueOf(Math.round(tiepnhan1DB)));
 		}
-		if(!StringUtils.isEmpty(capphat1)){
-			Double capphat1DB = (Double.parseDouble(capphat1) * 0.6)/100;
+		if (!StringUtils.isEmpty(capphat1)) {
+			capphat1DB = (Double.parseDouble(capphat1) * 0.6) / 100;
 			m.put("capphat1DB", String.valueOf(Math.round(capphat1DB)));
 		}
-		if(!StringUtils.isEmpty(baoquan1)){
-			Double baoquan1DB = (Double.parseDouble(baoquan1) * 0.15)/100;
-			m.put("baoquan1DB",  String.valueOf(Math.round(baoquan1DB)));
+		if (!StringUtils.isEmpty(baoquan1)) {
+			baoquan1DB = (Double.parseDouble(baoquan1) * 0.15) / 100;
+			m.put("baoquan1DB", String.valueOf(Math.round(baoquan1DB)));
 		}
-		if(!StringUtils.isEmpty(vanchuyen1)){
-			Double vanchuyen1DB = (Double.parseDouble(vanchuyen1) * 0.16)/100;
-			m.put("vanchuyen1DB",  String.valueOf(Math.round(vanchuyen1DB)));
+		if (!StringUtils.isEmpty(vanchuyen1)) {
+			vanchuyen1DB = (Double.parseDouble(vanchuyen1) * 0.16) / 100;
+			m.put("vanchuyen1DB", String.valueOf(Math.round(vanchuyen1DB)));
 		}
-		
+
+		Double sumBeso1 = tiepnhan1DB + capphat1DB + baoquan1DB + vanchuyen1DB;
+		m.put("sumBeso1", sumBeso1);
+		// =============================================
+		Double tiepnhan2DB = 0.0;
+		Double capphat2DB = 0.0;
+		Double baoquan2DB = 0.0;
+		Double vanchuyen2DB = 0.0;
+		if (!StringUtils.isEmpty(tiepnhan2)) {
+			tiepnhan2DB = (Double.parseDouble(tiepnhan2) * 0.35) / 100;
+			m.put("tiepnhan2DB", String.valueOf(Math.round(tiepnhan2DB)));
+		}
+		if (!StringUtils.isEmpty(capphat2)) {
+			capphat2DB = (Double.parseDouble(capphat2) * 0.6) / 100;
+			m.put("capphat2DB", String.valueOf(Math.round(capphat2DB)));
+		}
+		if (!StringUtils.isEmpty(baoquan2)) {
+			baoquan2DB = (Double.parseDouble(baoquan2) * 0.15) / 100;
+			m.put("baoquan2DB", String.valueOf(Math.round(baoquan2DB)));
+		}
+		if (!StringUtils.isEmpty(vanchuyen2)) {
+			vanchuyen2DB = (Double.parseDouble(vanchuyen2) * 0.16) / 100;
+			m.put("vanchuyen2DB", String.valueOf(Math.round(vanchuyen2DB)));
+		}
+		Double sumBeso2 = tiepnhan2DB + capphat2DB + baoquan2DB + vanchuyen2DB;
+		m.put("sumBeso2", sumBeso2);
+		// =============================================
+		Double tiepnhan3DB = 0.0;
+		Double capphat3DB = 0.0;
+		Double baoquan3DB = 0.0;
+		Double vanchuyen3DB = 0.0;
+		if (!StringUtils.isEmpty(tiepnhan3)) {
+			tiepnhan3DB = (Double.parseDouble(tiepnhan3) * 0.35) / 100;
+			m.put("tiepnhan3DB", String.valueOf(Math.round(tiepnhan3DB)));
+		}
+		if (!StringUtils.isEmpty(capphat2)) {
+			capphat3DB = (Double.parseDouble(capphat3) * 0.6) / 100;
+			m.put("capphat3DB", String.valueOf(Math.round(capphat3DB)));
+		}
+		if (!StringUtils.isEmpty(baoquan3)) {
+			baoquan3DB = (Double.parseDouble(baoquan3) * 0.15) / 100;
+			m.put("baoquan3DB", String.valueOf(Math.round(baoquan3DB)));
+		}
+		if (!StringUtils.isEmpty(vanchuyen2)) {
+			vanchuyen3DB = (Double.parseDouble(vanchuyen3) * 0.16) / 100;
+			m.put("vanchuyen3DB", String.valueOf(Math.round(vanchuyen3DB)));
+		}
+		Double sumBeso3 = tiepnhan2DB + capphat2DB + baoquan2DB + vanchuyen2DB;
+		m.put("sumBeso3", sumBeso3);
+		// =============================================
+
 		dataSource.add(m);
 		JRDataSource frDataSource = new JRBeanCollectionDataSource(dataSource);
 		InputStream jasperJRXML = this.getClass().getResourceAsStream("/Data/newApp_3.jrxml");
@@ -244,78 +298,77 @@ public class FXMLController implements Initializable {
 			JFrame jf = new JFrame();
 			jf.getContentPane().add(jv);
 			jf.validate();
-//			jf.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-//			jf.setUndecorated(true);
+			// jf.setExtendedState(JFrame.MAXIMIZED_BOTH);
+			// jf.setUndecorated(true);
 			jf.setVisible(true);
 			jf.setSize(new Dimension(1000, 800));
 			jf.setLocationRelativeTo(null);
 			jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-		} catch (JRException ex) { 
+		} catch (JRException ex) {
 			System.err.println(ex);
-			
+
 		}
 	}
 
-	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		txtBeso11.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(3));
-		txtBeso12.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(3));
-		
-		txtBeso21.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(3));
-		txtBeso22.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(3));
-		txtBeso23.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(3));
-		
-		txtBeso31.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(3));
-		txtBeso32.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(3));
-		
-		txtnhietdoBe1.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(5));
-		txtnhietdoBe2.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(5));
-		txtnhietdoBe3.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(5));
+		txtBeso11.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(3));
+		txtBeso12.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(3));
 
-		txtTiepNhanBs1.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
-		txtTiepNhanBs2.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
-		txtTiepNhanBs3.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
-		
-		txtCapPhatBs1.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
-		txtCapPhatBs2.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
-		txtCapPhatBs3.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
-		
-		txtBaoquanBs1.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
-		txtBaoquanBs2.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
-		txtBaoquanBs3.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
-		
-		txtVanchuyenBs1.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
-		txtVanchuyenBs2.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
-		txtVanchuyenBs3.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
-		
-		txttontheoSSBe1.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
-		txttontheoSSBe2.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
-		txttontheoSSBe3.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
+		txtBeso21.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(3));
+		txtBeso22.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(3));
+		txtBeso23.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(3));
+
+		txtBeso31.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(3));
+		txtBeso32.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(3));
+
+		txtnhietdoBe1.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(5));
+		txtnhietdoBe2.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(5));
+		txtnhietdoBe3.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(5));
+
+		txtTiepNhanBs1.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(10));
+		txtTiepNhanBs2.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(10));
+		txtTiepNhanBs3.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(10));
+
+		txtCapPhatBs1.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(10));
+		txtCapPhatBs2.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(10));
+		txtCapPhatBs3.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(10));
+
+		txtBaoquanBs1.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(10));
+		txtBaoquanBs2.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(10));
+		txtBaoquanBs3.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(10));
+
+		txtVanchuyenBs1.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(10));
+		txtVanchuyenBs2.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(10));
+		txtVanchuyenBs3.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(10));
+
+		txttontheoSSBe1.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(10));
+		txttontheoSSBe2.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(10));
+		txttontheoSSBe3.addEventFilter(KeyEvent.KEY_TYPED, numeric_Validation(10));
 	}
-	
+
 	public EventHandler<KeyEvent> numeric_Validation(final Integer max_Lengh) {
-	    return new EventHandler<KeyEvent>() {
-	        @Override
-	        public void handle(KeyEvent e) {
-	            TextField txt_TextField = (TextField) e.getSource();                
-	            if (txt_TextField.getText().length() >= max_Lengh) {                    
-	                e.consume();
-	            }
-	            if(e.getCharacter().matches("[0-9.]")){ 
-	                if(txt_TextField.getText().contains(".") && e.getCharacter().matches("[.]")){
-	                    e.consume();
-	                }else if(txt_TextField.getText().length() == 0 && e.getCharacter().matches("[.]")){
-	                    e.consume(); 
-	                }
-	            }else{
-	                e.consume();
-	            }
-	        }
-	    };
-	} 
-    
+		return new EventHandler<KeyEvent>() {
+			@Override
+			public void handle(KeyEvent e) {
+				TextField txt_TextField = (TextField) e.getSource();
+				if (txt_TextField.getText().length() >= max_Lengh) {
+					e.consume();
+				}
+				if (e.getCharacter().matches("[0-9.]")) {
+					if (txt_TextField.getText().contains(".") && e.getCharacter().matches("[.]")) {
+						e.consume();
+					} else if (txt_TextField.getText().length() == 0 && e.getCharacter().matches("[.]")) {
+						e.consume();
+					}
+				} else {
+					e.consume();
+				}
+			}
+		};
+	}
+
 	private product dataReport() {
 		product product = new product();
 		App app = new App();
@@ -345,14 +398,13 @@ public class FXMLController implements Initializable {
 		double V15_31 = 0.0;
 		double V15_32 = 0.0;
 		int thieu3 = 0;
-		
+
 		DecimalFormat formatDouble = new DecimalFormat("#0.00");
 
 		try {
 			List<barem> beso1 = app.readBaremFile("Data/Data_Be1.txt");
 			List<barem> beso2 = app.readBaremFile("Data/Data_Be2.txt");
 			List<barem> beso3 = app.readBaremFile("Data/Data_Be3.txt");
-			
 
 			if (!StringUtils.isEmpty(nhietdoBe1)) {
 				VCF11 = App.convertVCF(nhietdoBe1);
@@ -372,31 +424,31 @@ public class FXMLController implements Initializable {
 
 			if (!StringUtils.isEmpty(beso11) && !StringUtils.isEmpty(beso12)) {
 				Vthucte11 = app.findInBarem(beso11, beso1);
-//				Vthucte12 = app.findInBarem(beso12, beso1);
+				// Vthucte12 = app.findInBarem(beso12, beso1);
 				Vthucte12 = Double.parseDouble(beso12);
 				V15_11 = Vthucte11 * VCF11;
 				V15_12 = Math.round(Vthucte12 * VCF12);
-				
-				String dx1= formatDouble.format(V15_11).replace(",", ".");
-				String dx2= formatDouble.format(V15_12).replace(",", ".");
+
+				String dx1 = formatDouble.format(V15_11).replace(",", ".");
+				String dx2 = formatDouble.format(V15_12).replace(",", ".");
 				V15_11 = Double.valueOf(dx1);
 				V15_12 = Double.valueOf(dx2);
-						
+
 			}
 
-			if (!StringUtils.isEmpty(beso21) && !StringUtils.isEmpty(beso22)&& !StringUtils.isEmpty(beso23)) {
+			if (!StringUtils.isEmpty(beso21) && !StringUtils.isEmpty(beso22) && !StringUtils.isEmpty(beso23)) {
 				Vthucte21 = app.findInBarem(beso21, beso2);
 				Vthucte22 = app.findInBarem(beso22, beso2);
-//				Vthucte23 = app.findInBarem(beso23, beso3);
+				// Vthucte23 = app.findInBarem(beso23, beso3);
 				Vthucte23 = Math.round(Double.parseDouble(beso23));
 
 				V15_21 = Vthucte21 * VCF21;
 				V15_22 = Vthucte22 * VCF22;
 				V15_23 = Vthucte23 * VCF23;
-				
-				String dx1= formatDouble.format(V15_21).replace(",", ".");
-				String dx2= formatDouble.format(V15_22).replace(",", ".");
-				String dx3= formatDouble.format(V15_23).replace(",", ".");
+
+				String dx1 = formatDouble.format(V15_21).replace(",", ".");
+				String dx2 = formatDouble.format(V15_22).replace(",", ".");
+				String dx3 = formatDouble.format(V15_23).replace(",", ".");
 				V15_21 = Double.valueOf(dx1);
 				V15_22 = Double.valueOf(dx2);
 				V15_23 = Double.valueOf(dx3);
@@ -404,14 +456,14 @@ public class FXMLController implements Initializable {
 
 			if (!StringUtils.isEmpty(beso31) && !StringUtils.isEmpty(beso32)) {
 				Vthucte31 = app.findInBarem(beso31, beso3);
-//				Vthucte32 = app.findInBarem(beso32, beso3);
+				// Vthucte32 = app.findInBarem(beso32, beso3);
 				Vthucte32 = Double.parseDouble(beso32);
 
 				V15_31 = Vthucte31 * VCF31;
 				V15_32 = Math.round(Vthucte32 * VCF32);
-				
-				String dx1= formatDouble.format(V15_31).replace(",", ".");
-				String dx2= formatDouble.format(V15_32).replace(",", ".");
+
+				String dx1 = formatDouble.format(V15_31).replace(",", ".");
+				String dx2 = formatDouble.format(V15_32).replace(",", ".");
 				V15_31 = Double.valueOf(dx1);
 				V15_32 = Double.valueOf(dx2);
 			}
@@ -422,14 +474,14 @@ public class FXMLController implements Initializable {
 				BigDecimal thieu1Double = a1.subtract(a2);
 				thieu1 = thieu1Double.setScale(0, BigDecimal.ROUND_HALF_UP).intValue();
 			}
-			
+
 			if (!StringUtils.isEmpty(tontheoSSBe2)) {
 				BigDecimal a1 = new BigDecimal(Double.parseDouble(tontheoSSBe2));
 				BigDecimal a2 = new BigDecimal(V15_21 + V15_22 + V15_23);
 				BigDecimal thieu2Double = a1.subtract(a2);
 				thieu2 = thieu2Double.setScale(0, BigDecimal.ROUND_HALF_UP).intValue();
 			}
-			
+
 			if (!StringUtils.isEmpty(tontheoSSBe3)) {
 				BigDecimal a1 = new BigDecimal(Double.parseDouble(tontheoSSBe3));
 				BigDecimal a2 = new BigDecimal(V15_31 + V15_32);
@@ -469,7 +521,7 @@ public class FXMLController implements Initializable {
 			product.setVanchuyen2(vanchuyen2);
 			product.setNhietdo2(nhietdoBe2);
 			product.setTontheoSS2(tontheoSSBe2);
-			
+
 			product.setBeso31(beso31);
 			product.setBeso32(beso32);
 			product.setVCF31(String.valueOf(VCF31));
@@ -484,13 +536,13 @@ public class FXMLController implements Initializable {
 			product.setVanchuyen3(vanchuyen3);
 			product.setNhietdo3(nhietdoBe3);
 			product.setTontheoSS3(tontheoSSBe3);
-			
+
 			product.setThieu1(Integer.toString(thieu1));
 			product.setThieu2(Integer.toString(thieu2));
 			product.setThieu3(Integer.toString(thieu3));
 		} catch (Exception e) {
 			System.out.println(e);
-			
+
 		}
 		return product;
 	}

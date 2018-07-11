@@ -307,7 +307,6 @@ public class FXMLController implements Initializable {
 
 		} catch (JRException ex) {
 			System.err.println(ex);
-
 		}
 	}
 

@@ -2355,7 +2355,7 @@ sách]]></text>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{nhietdo1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{beso12}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="480" y="421" width="50" height="22" uuid="b6de8f9d-fcc0-45a4-84c9-7ce4e1d67868"/>
@@ -2550,7 +2550,7 @@ sách]]></text>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[Double.parseDouble($F{Vthucte11})+Double.parseDouble($F{Vthucte12})]]></textFieldExpression>
+				<textFieldExpression><![CDATA[Double.parseDouble($F{Vthucte11})+(Double.parseDouble($F{beso12})/100.0)]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="480" y="399" width="50" height="22" uuid="02b025dc-f9a1-4cfd-b211-95d3cc692371"/>
@@ -2563,7 +2563,7 @@ sách]]></text>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[Double.parseDouble($F{Vthucte21})+Double.parseDouble($F{Vthucte22})+Double.parseDouble($F{Vthucte32})]]></textFieldExpression>
+				<textFieldExpression><![CDATA[Double.parseDouble($F{Vthucte21})+Double.parseDouble($F{Vthucte22})+(Double.parseDouble($F{beso23})/100.0)]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="530" y="399" width="50" height="22" uuid="749c5bf4-f923-4061-a738-e34704dc5269"/>
@@ -2589,7 +2589,7 @@ sách]]></text>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[Double.parseDouble($F{Vthucte31})+Double.parseDouble($F{Vthucte32})]]></textFieldExpression>
+				<textFieldExpression><![CDATA[Double.parseDouble($F{Vthucte31})+(Double.parseDouble($F{beso32})/100.0)]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="530" y="487" width="50" height="22" uuid="d7aec914-20ec-4caa-8eb8-fd721015ba31"/>

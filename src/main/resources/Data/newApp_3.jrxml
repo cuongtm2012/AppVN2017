@@ -5740,6 +5740,79 @@ sách]]></text>
 				</textElement>
 				<textFieldExpression><![CDATA[" Hao vận chuyển  = "+$F{vanchuyen3} +  "lít "]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="0" y="396" width="802" height="22" uuid="9d568eba-a96e-4b7a-871e-4af92d85b0b7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[Như vậy lượng hao hụt phù hợp với định mức 59]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="30" y="424" width="230" height="22" uuid="ed3f4c70-4df9-4f60-9ba8-759933729aff"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CÁN BỘ KIỂM KÊ ĐƠN VỊ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="30" y="453" width="282" height="20" uuid="75951054-6fe8-40a2-bf44-dbb6ff633aa0"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tenNV1}+ " "+$F{tenNV1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="474" width="282" height="20" uuid="0cb56fcc-e388-4632-9490-b839edbeba4f"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tittle2}+ " "+$F{tenNV2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="516" width="282" height="20" uuid="dd33ddad-fbca-4a01-b842-6e79baa2c6cf"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tittle4}+ " "+$F{tenNV4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="495" width="282" height="20" uuid="5998d537-7e3f-4db9-ba79-d67e16c4bef2"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tittle3}+ " "+$F{tenNV3}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="560" y="422" width="230" height="22" uuid="4af222df-31b3-426e-9af6-619f147f9d94"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CHỦ NHIỆM]]></text>
+			</staticText>
 		</band>
 	</detail>
 </jasperReport>

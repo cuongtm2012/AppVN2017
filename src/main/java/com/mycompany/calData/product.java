@@ -54,6 +54,10 @@ public class product {
     private String nhietdo3 = "";
     private String tontheoSS3 = "";
     private String thieu3 = "";
+    
+    private String thua1 = "";
+    private String thua2 = "";
+    private String thua3 = "";
 
     public String getBeso11() {
         return beso11;
@@ -465,5 +469,29 @@ public class product {
     public void setThieu3(String thieu3) {
         this.thieu3 = thieu3;
     }
+
+	public String getThua1() {
+		return thua1;
+	}
+
+	public void setThua1(String thua1) {
+		this.thua1 = thua1;
+	}
+
+	public String getThua2() {
+		return thua2;
+	}
+
+	public void setThua2(String thua2) {
+		this.thua2 = thua2;
+	}
+
+	public String getThua3() {
+		return thua3;
+	}
+
+	public void setThua3(String thua3) {
+		this.thua3 = thua3;
+	}
     
 }

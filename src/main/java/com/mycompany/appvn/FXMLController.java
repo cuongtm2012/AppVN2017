@@ -14,12 +14,15 @@ import java.util.ResourceBundle;
 import javax.swing.JFrame;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.util.AlternativeJdkIdGenerator;
 
 import com.mycompany.calData.App;
 import com.mycompany.calData.barem;
 import com.mycompany.calData.product;
 import com.mycompany.calData.thanhphan;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -204,6 +207,9 @@ public class FXMLController implements Initializable {
 		m.put("thieu1", prd.getThieu1());
 		m.put("thieu2", prd.getThieu2());
 		m.put("thieu3", prd.getThieu3());
+		m.put("thua1", prd.getThua1());
+		m.put("thua2", prd.getThua2());
+		m.put("thua3", prd.getThua3());
 		// Add thanhphan into dataSource
 		App app = new App();
 		List<thanhphan> thanhphan = app.readThanhPhan("Data/thanhPhan.txt");
@@ -214,99 +220,115 @@ public class FXMLController implements Initializable {
 			m.put("chucvu" + i, thanhphan.get(i).getChucvu());
 		}
 
-		// Filling page 3
-		Double tiepnhan1DB = 0.0;
-		Double capphat1DB = 0.0;
-		Double baoquan1DB = 0.0;
-		Double vanchuyen1DB = 0.0;
-		if (!StringUtils.isEmpty(tiepnhan1)) {
-			tiepnhan1DB = (Double.parseDouble(tiepnhan1) * 0.35) / 100;
-			m.put("tiepnhan1DB", String.valueOf(Math.round(tiepnhan1DB)));
-		}
-		if (!StringUtils.isEmpty(capphat1)) {
-			capphat1DB = (Double.parseDouble(capphat1) * 0.6) / 100;
-			m.put("capphat1DB", String.valueOf(Math.round(capphat1DB)));
-		}
-		if (!StringUtils.isEmpty(baoquan1)) {
-			baoquan1DB = (Double.parseDouble(baoquan1) * 0.15) / 100;
-			m.put("baoquan1DB", String.valueOf(Math.round(baoquan1DB)));
-		}
-		if (!StringUtils.isEmpty(vanchuyen1)) {
-			vanchuyen1DB = (Double.parseDouble(vanchuyen1) * 0.16) / 100;
-			m.put("vanchuyen1DB", String.valueOf(Math.round(vanchuyen1DB)));
-		}
+		if (!StringUtils.isEmpty(beso11) && !StringUtils.isEmpty(beso12) && !StringUtils.isEmpty(tiepnhan1)
+				&& !StringUtils.isEmpty(capphat1) && !StringUtils.isEmpty(baoquan1)&& !StringUtils.isEmpty(vanchuyen1)&& !StringUtils.isEmpty(nhietdoBe1)&& !StringUtils.isEmpty(tontheoSSBe1)) {
 
-		Double sumBeso1 = tiepnhan1DB + capphat1DB + baoquan1DB + vanchuyen1DB;
-		m.put("sumBeso1", sumBeso1);
-		// =============================================
-		Double tiepnhan2DB = 0.0;
-		Double capphat2DB = 0.0;
-		Double baoquan2DB = 0.0;
-		Double vanchuyen2DB = 0.0;
-		if (!StringUtils.isEmpty(tiepnhan2)) {
-			tiepnhan2DB = (Double.parseDouble(tiepnhan2) * 0.35) / 100;
-			m.put("tiepnhan2DB", String.valueOf(Math.round(tiepnhan2DB)));
-		}
-		if (!StringUtils.isEmpty(capphat2)) {
-			capphat2DB = (Double.parseDouble(capphat2) * 0.6) / 100;
-			m.put("capphat2DB", String.valueOf(Math.round(capphat2DB)));
-		}
-		if (!StringUtils.isEmpty(baoquan2)) {
-			baoquan2DB = (Double.parseDouble(baoquan2) * 0.15) / 100;
-			m.put("baoquan2DB", String.valueOf(Math.round(baoquan2DB)));
-		}
-		if (!StringUtils.isEmpty(vanchuyen2)) {
-			vanchuyen2DB = (Double.parseDouble(vanchuyen2) * 0.16) / 100;
-			m.put("vanchuyen2DB", String.valueOf(Math.round(vanchuyen2DB)));
-		}
-		Double sumBeso2 = tiepnhan2DB + capphat2DB + baoquan2DB + vanchuyen2DB;
-		m.put("sumBeso2", sumBeso2);
-		// =============================================
-		Double tiepnhan3DB = 0.0;
-		Double capphat3DB = 0.0;
-		Double baoquan3DB = 0.0;
-		Double vanchuyen3DB = 0.0;
-		if (!StringUtils.isEmpty(tiepnhan3)) {
-			tiepnhan3DB = (Double.parseDouble(tiepnhan3) * 0.35) / 100;
-			m.put("tiepnhan3DB", String.valueOf(Math.round(tiepnhan3DB)));
-		}
-		if (!StringUtils.isEmpty(capphat2)) {
-			capphat3DB = (Double.parseDouble(capphat3) * 0.6) / 100;
-			m.put("capphat3DB", String.valueOf(Math.round(capphat3DB)));
-		}
-		if (!StringUtils.isEmpty(baoquan3)) {
-			baoquan3DB = (Double.parseDouble(baoquan3) * 0.15) / 100;
-			m.put("baoquan3DB", String.valueOf(Math.round(baoquan3DB)));
-		}
-		if (!StringUtils.isEmpty(vanchuyen2)) {
-			vanchuyen3DB = (Double.parseDouble(vanchuyen3) * 0.16) / 100;
-			m.put("vanchuyen3DB", String.valueOf(Math.round(vanchuyen3DB)));
-		}
-		Double sumBeso3 = tiepnhan2DB + capphat2DB + baoquan2DB + vanchuyen2DB;
-		m.put("sumBeso3", sumBeso3);
-		// =============================================
+			// Filling page 3
+			Double tiepnhan1DB = 0.0;
+			Double capphat1DB = 0.0;
+			Double baoquan1DB = 0.0;
+			Double vanchuyen1DB = 0.0;
+			if (!StringUtils.isEmpty(tiepnhan1)) {
+				tiepnhan1DB = (Double.parseDouble(tiepnhan1) * 0.35) / 100;
+				m.put("tiepnhan1DB", String.valueOf(Math.round(tiepnhan1DB)));
+			}
+			if (!StringUtils.isEmpty(capphat1)) {
+				capphat1DB = (Double.parseDouble(capphat1) * 0.6) / 100;
+				m.put("capphat1DB", String.valueOf(Math.round(capphat1DB)));
+			}
+			if (!StringUtils.isEmpty(baoquan1)) {
+				baoquan1DB = (Double.parseDouble(baoquan1) * 0.15) / 100;
+				m.put("baoquan1DB", String.valueOf(Math.round(baoquan1DB)));
+			}
+			if (!StringUtils.isEmpty(vanchuyen1)) {
+				vanchuyen1DB = (Double.parseDouble(vanchuyen1) * 0.16) / 100;
+				m.put("vanchuyen1DB", String.valueOf(Math.round(vanchuyen1DB)));
+			}
 
-		dataSource.add(m);
-		JRDataSource frDataSource = new JRBeanCollectionDataSource(dataSource);
-		InputStream jasperJRXML = this.getClass().getResourceAsStream("/Data/newApp_3.jrxml");
+			Double sumBeso1 = tiepnhan1DB + capphat1DB + baoquan1DB + vanchuyen1DB;
+			m.put("sumBeso1", sumBeso1);
+			// =============================================
+			Double tiepnhan2DB = 0.0;
+			Double capphat2DB = 0.0;
+			Double baoquan2DB = 0.0;
+			Double vanchuyen2DB = 0.0;
+			if (!StringUtils.isEmpty(tiepnhan2)) {
+				tiepnhan2DB = (Double.parseDouble(tiepnhan2) * 0.35) / 100;
+				m.put("tiepnhan2DB", String.valueOf(Math.round(tiepnhan2DB)));
+			}
+			if (!StringUtils.isEmpty(capphat2)) {
+				capphat2DB = (Double.parseDouble(capphat2) * 0.6) / 100;
+				m.put("capphat2DB", String.valueOf(Math.round(capphat2DB)));
+			}
+			if (!StringUtils.isEmpty(baoquan2)) {
+				baoquan2DB = (Double.parseDouble(baoquan2) * 0.15) / 100;
+				m.put("baoquan2DB", String.valueOf(Math.round(baoquan2DB)));
+			}
+			if (!StringUtils.isEmpty(vanchuyen2)) {
+				vanchuyen2DB = (Double.parseDouble(vanchuyen2) * 0.16) / 100;
+				m.put("vanchuyen2DB", String.valueOf(Math.round(vanchuyen2DB)));
+			}
+			Double sumBeso2 = tiepnhan2DB + capphat2DB + baoquan2DB + vanchuyen2DB;
+			m.put("sumBeso2", sumBeso2);
+			// =============================================
+			Double tiepnhan3DB = 0.0;
+			Double capphat3DB = 0.0;
+			Double baoquan3DB = 0.0;
+			Double vanchuyen3DB = 0.0;
+			if (!StringUtils.isEmpty(tiepnhan3)) {
+				tiepnhan3DB = (Double.parseDouble(tiepnhan3) * 0.35) / 100;
+				m.put("tiepnhan3DB", String.valueOf(Math.round(tiepnhan3DB)));
+			}
+			if (!StringUtils.isEmpty(capphat2)) {
+				capphat3DB = (Double.parseDouble(capphat3) * 0.6) / 100;
+				m.put("capphat3DB", String.valueOf(Math.round(capphat3DB)));
+			}
+			if (!StringUtils.isEmpty(baoquan3)) {
+				baoquan3DB = (Double.parseDouble(baoquan3) * 0.15) / 100;
+				m.put("baoquan3DB", String.valueOf(Math.round(baoquan3DB)));
+			}
+			if (!StringUtils.isEmpty(vanchuyen2)) {
+				vanchuyen3DB = (Double.parseDouble(vanchuyen3) * 0.16) / 100;
+				m.put("vanchuyen3DB", String.valueOf(Math.round(vanchuyen3DB)));
+			}
+			Double sumBeso3 = tiepnhan2DB + capphat2DB + baoquan2DB + vanchuyen2DB;
+			m.put("sumBeso3", sumBeso3);
+			// =============================================
 
-		JasperReport report;
-		try {
-			report = JasperCompileManager.compileReport(jasperJRXML);
-			JasperPrint jasperPrint = JasperFillManager.fillReport(report, null, frDataSource);
-			JRViewer jv = new JRViewer(jasperPrint);
-			JFrame jf = new JFrame();
-			jf.getContentPane().add(jv);
-			jf.validate();
-			// jf.setExtendedState(JFrame.MAXIMIZED_BOTH);
-			// jf.setUndecorated(true);
-			jf.setVisible(true);
-			jf.setSize(new Dimension(1000, 800));
-			jf.setLocationRelativeTo(null);
-			jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			dataSource.add(m);
+			JRDataSource frDataSource = new JRBeanCollectionDataSource(dataSource);
+			InputStream jasperJRXML = this.getClass().getResourceAsStream("/Data/newApp_3.jrxml");
 
-		} catch (JRException ex) {
-			System.err.println(ex);
+			JasperReport report;
+			try {
+				report = JasperCompileManager.compileReport(jasperJRXML);
+				JasperPrint jasperPrint = JasperFillManager.fillReport(report, null, frDataSource);
+				JRViewer jv = new JRViewer(jasperPrint);
+				JFrame jf = new JFrame();
+				jf.getContentPane().add(jv);
+				jf.validate();
+				// jf.setExtendedState(JFrame.MAXIMIZED_BOTH);
+				// jf.setUndecorated(true);
+				jf.setVisible(true);
+				jf.setSize(new Dimension(1000, 800));
+				jf.setLocationRelativeTo(null);
+				jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+			} catch (JRException ex) {
+				System.err.println(ex);
+				Alert alert = new Alert(AlertType.ERROR);
+				alert.setTitle("Lỗi nhập dữ liệu");
+				alert.setHeaderText("Lỗi nhập dữ liệu");
+				alert.setContentText("Chi tiết lỗi : " + ex);
+
+				alert.showAndWait();
+			}
+		} else {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Lỗi nhập dữ liệu");
+			alert.setHeaderText("Lỗi nhập dữ liệu");
+			alert.setContentText("Không được để trống các trường");
+			alert.showAndWait();
 		}
 	}
 
@@ -378,6 +400,7 @@ public class FXMLController implements Initializable {
 		double V15_11 = 0.0;
 		double V15_12 = 0.0;
 		int thieu1 = 0;
+		int thua1 = 0;
 
 		double VCF21 = 0.0;
 		double VCF22 = 0.0;
@@ -389,6 +412,7 @@ public class FXMLController implements Initializable {
 		double V15_22 = 0.0;
 		double V15_23 = 0.0;
 		int thieu2 = 0;
+		int thua2 = 0;
 
 		double VCF31 = 0.0;
 		double VCF32 = 0.0;
@@ -397,6 +421,7 @@ public class FXMLController implements Initializable {
 		double V15_31 = 0.0;
 		double V15_32 = 0.0;
 		int thieu3 = 0;
+		int thua3 = 0;
 
 		DecimalFormat formatDouble = new DecimalFormat("#0.00");
 
@@ -472,6 +497,12 @@ public class FXMLController implements Initializable {
 				BigDecimal a2 = new BigDecimal(V15_11 + V15_12);
 				BigDecimal thieu1Double = a1.subtract(a2);
 				thieu1 = thieu1Double.setScale(0, BigDecimal.ROUND_HALF_UP).intValue();
+				if (thieu1 < 0) {
+					thua1 = Math.abs(thieu1);
+					thieu1 = 0;
+				} else {
+					thua1 = 0;
+				}
 			}
 
 			if (!StringUtils.isEmpty(tontheoSSBe2)) {
@@ -479,6 +510,12 @@ public class FXMLController implements Initializable {
 				BigDecimal a2 = new BigDecimal(V15_21 + V15_22 + V15_23);
 				BigDecimal thieu2Double = a1.subtract(a2);
 				thieu2 = thieu2Double.setScale(0, BigDecimal.ROUND_HALF_UP).intValue();
+				if (thieu2 < 0) {
+					thua2 = Math.abs(thieu2);
+					thieu2 = 0;
+				} else {
+					thua2 = 0;
+				}
 			}
 
 			if (!StringUtils.isEmpty(tontheoSSBe3)) {
@@ -486,6 +523,12 @@ public class FXMLController implements Initializable {
 				BigDecimal a2 = new BigDecimal(V15_31 + V15_32);
 				BigDecimal thieu3Double = a1.subtract(a2);
 				thieu3 = thieu3Double.setScale(0, BigDecimal.ROUND_HALF_UP).intValue();
+				if (thieu3 < 0) {
+					thua3 = Math.abs(thieu3);
+					thieu3 = 0;
+				} else {
+					thua3 = 0;
+				}
 			}
 			product.setBeso11(beso11);
 			product.setBeso12(beso12);
@@ -539,6 +582,9 @@ public class FXMLController implements Initializable {
 			product.setThieu1(Integer.toString(thieu1));
 			product.setThieu2(Integer.toString(thieu2));
 			product.setThieu3(Integer.toString(thieu3));
+			product.setThua1(Integer.toString(thua1));
+			product.setThua2(Integer.toString(thua2));
+			product.setThua3(Integer.toString(thua3));
 		} catch (Exception e) {
 			System.out.println(e);
 
